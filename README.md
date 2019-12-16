@@ -4,7 +4,6 @@
 
 1. [_.chunk](#_chunk)
 1. [_.compact](#_compact)
-1. [_.concat](#_concat)
 1. [_.difference](#_difference)
 1. [_.fill](#_fill)
 1. [_.find](#_find)
@@ -15,13 +14,11 @@
 1. [_.fromPairs](#_frompairs)
 1. [_.head and _.tail](#_head-and-_tail)
 1. [_.intersection](#_intersection)
-1. [_.isArray](#_isarray)
 1. [_.isArrayBuffer](#_isarraybuffer)
 1. [_.join](#_join)
 1. [_.last](#_last)
 1. [_.lastIndexOf](#_lastindexof)
 1. [_.reverse](#_reverse)
-1. [_.slice](#_slice)
 1. [_.without](#_without)
 
 **[Collection*](#collection*)**
@@ -82,7 +79,6 @@ then Lodash/Underscore is the better option.*
 
 **[String](#string)**
 
-1. [_.padStart and _.padEnd](#_padstart-and-_padend)
 1. [_.replace](#_replace)
 1. [_.split](#_split)
 1. [_.template](#_template)
@@ -90,10 +86,6 @@ then Lodash/Underscore is the better option.*
 1. [_.toUpper](#_toupper)
 1. [_.trim](#_trim)
 1. [_.upperFirst](#_upperFirst)
-
-**[Util](#string)**
-
-1. [_.times](#_times)
 
 **[Number](#number)**
 
@@ -157,34 +149,6 @@ Creates an array with all falsy values removed.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.concat
-
-Creates a new array concatenating array with any additional arrays and/or values.
-
-  ```js
-  // Underscore/Lodash
-  var array = [1]
-  var other = _.concat(array, 2, [3], [[4]])
-
-  console.log(other)
-  // output: [1, 2, 3, [4]]
-
-  // Native
-  var array = [1]
-  var other = array.concat(2, [3], [[4]])
-
-  console.log(other)
-  // output: [1, 2, 3, [4]]
-  ```
-
-#### Browser Support for `Array.prototype.concat()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         1.0  ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -607,75 +571,6 @@ Creates a slice of array with n elements taken from the end.
 
 **[⬆ back to top](#quick-links)**
 
-### _.isArray
-Returns true if given value is an array.
-
-  ```js
-  // Lodash
-  var array = []
-  console.log(_.isArray(array))
-  // output: true
-
-  // Native
-  var array = []
-  console.log(Array.isArray(array));
-  // output: true
-  ```
-
-  #### Browser Support for `Array.isArray()`
-
- | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
- | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
- |          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        10.5 ✔         |          5.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.isArrayBuffer
-
-Checks if value is classified as an ArrayBuffer object.
-
-  ```js
-  // Lodash
-  _.isArrayBuffer(new ArrayBuffer(2));
-  // output: true
-
-  // Native
-  console.log(new ArrayBuffer(2) instanceof ArrayBuffer);
-  // output: true
-  ```
-
-  #### Browser Support for `instanceof`
-
- | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
- | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
- |            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.join
-:heavy_exclamation_mark:`Not in Underscore.js`
-Joins a list of elements in an array with a given separator.
-
-  ```js
-  // Lodash
-  var result = _.join(['one', 'two', 'three'], '--')
-  console.log(result)
-  // output: 'one--two--three'
-
-  // Native
-  var result = ['one', 'two', 'three'].join('--')
-  console.log(result)
-  // output: 'one--two--three'
-  ```
-
-#### Browser Support for `Array.prototype.join()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.last
 
 Returns the last element of an array. Passing n will return the last n elements of the array.
@@ -769,29 +664,6 @@ It's exposed on _ because previously, like `Underscore`, it was only exposed in 
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |            ✔            |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.slice
-Returns a shallow copy of a portion of an array into a new array object selected from `begin` to `end` (`end` not included)
-
-  ```js
-  // Lodash
-  var array = [1, 2, 3, 4]
-  console.log(_.slice(array, 1, 3))
-  // output: [2, 3]
-
-  // Native
-  var array = [1, 2, 3, 4]
-  console.log(array.slice(1, 3));
-  // output: [2, 3]
-  ```
-
-#### Browser Support for `Array.prototype.slice()`
-
- | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
- | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
- |          1.0 ✔          |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2141,34 +2013,6 @@ Retrieves all the given object's own enumerable property values.
 
 ## String
 
-### _.padStart and _.padEnd
-:heavy_exclamation_mark:`Not in Underscore.js`
-Pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length.
-
-  ```js
-  // Lodash
-  console.log(_.padStart('123', 5, '0'))
-  // output: '00123'
-
-  console.log(_.padEnd('123', 5, '0'))
-  // output: '12300'
-
-  // Native
-  console.log('123'.padStart(5, '0'))
-  // output: '00123'
-
-  console.log('123'.padEnd(5, '0'))
-  // output: '12300'
-  ```
-
-#### Browser Support for `String.prototype.padStart()` and `String.prototype.padEnd()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         57.0 ✔          |       15.0 ✔        |          48.0 ✔           |        ✖        |        44.0 ✔         |         10.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.replace
 returns a new string with some or all matches of a `pattern` replaced by a `replacement`
 
@@ -2370,36 +2214,6 @@ Removes all duplicates entries from an array.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         38.0 ✔          |       ✔ 12.0        |          13.0 ✔           |     11.0 ✔      |        25.0 ✔         |          7.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-## Util
-
-### _.times
-Invokes the iteratee n times, returning an array of the results of each invocation.
-
-  ```js
-  // Lodash
-  var result = _.times(10)
-  console.log(result)
-  // output: '[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'
-
-  // Native
-  var result = Array.from({length: 10}, (_,x) => x)
-  console.log(result)
-  // output: '[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'
-  
-  // Native
-  var result = [...Array(10).keys()]
-  console.log(result)
-  // output: '[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'
-  ```
-
-#### Browser Support for `Array.from()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         45.0 ✔          |          ✔          |          32.0 ✔           |        ✖        |           ✔           |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 

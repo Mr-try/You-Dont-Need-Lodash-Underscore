@@ -91,8 +91,6 @@ suggest that you take extra precautions [e.g. consider using the native Object.k
 1. [_.compact](#_compact)
 1. [_.concat](#_concat)
 1. [_.difference](#_difference)
-1. [_.drop](#_drop)
-1. [_.dropRight](#_dropRight)
 1. [_.fill](#_fill)
 1. [_.find](#_find)
 1. [_.findIndex](#_findindex)
@@ -101,7 +99,6 @@ suggest that you take extra precautions [e.g. consider using the native Object.k
 1. [_.flattenDeep](#_flattendeep)
 1. [_.fromPairs](#_frompairs)
 1. [_.head and _.tail](#_head-and-_tail)
-1. [_.indexOf](#_indexof)
 1. [_.intersection](#_intersection)
 1. [_.isArray](#_isarray)
 1. [_.isArrayBuffer](#_isarraybuffer)
@@ -225,9 +222,9 @@ chunk(['a', 'b', 'c', 'd'], 3);
 
 #### Browser Support for Spread in array literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-   46.0 ✔  | 12.0 ✔ | 16.0 ✔ |  ✖ |  37.0 ✔ |  8.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -245,9 +242,9 @@ Creates an array with all falsy values removed.
 
 #### Browser Support for `array.prototype.filter`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-   ✔  |  ✔ |  1.5 ✔ |  9.0 ✔ |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -273,9 +270,9 @@ Creates a new array concatenating array with any additional arrays and/or values
 
 #### Browser Support for `Array.prototype.concat()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-1.0  ✔  | ✔  |  1.0 ✔ |  5.5 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         1.0  ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -304,65 +301,9 @@ Similar to [without](#_without), but returns the values from array that are not 
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-   ✔  |  ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
-
-**[⬆ back to top](#quick-links)**
-
-### _.drop
-
-Creates a slice of array with n elements dropped from the beginning.
-
-  ```js
-  // Underscore/Lodash
-  _.drop([1, 2, 3]);
-  // => [2, 3]
-
-  _.drop([1, 2, 3], 2);
-  // => [3]
-
-  // Native
-  [1, 2, 3].slice(1);
-  // => [2, 3]
-  
-  [1, 2, 3].slice(2);
-  // => [3]
-  ```
-
-#### Browser Support for `Array.prototype.slice()`
-
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  |  1.0 ✔  |  ✔  |  ✔  | ✔  |
-
-**[⬆ back to top](#quick-links)**
-
-### _.dropRight
-
-Creates a slice of array with n elements dropped at the end.
-
-  ```js
-  // Underscore/Lodash
-  _.dropRight([1, 2, 3]);
-  // => [1, 2]
-
-  _.dropRight([1, 2, 3], 2);
-  // => [1]
-
-  // Native
-  [1, 2, 3].slice(0, -1);
-  // => [1, 2]
-
-  [1, 2, 3].slice(0, -2);
-  // => [1]
-  ```
-
-#### Browser Support for `Array.prototype.slice()`
-
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  |  1.0 ✔  |  ✔  |  ✔  | ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -403,9 +344,9 @@ Fills elements of array with value from start up to, but not including, end.
 
 #### Browser Support for `Array.prototype.fill()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔ | ✔  | 31.0 ✔ |  ✖  |  32.0 ✔ |  8 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         45.0 ✔          |          ✔          |          31.0 ✔           |        ✖        |        32.0 ✔         |           8 ✔           |
 
 **[⬆ back to top](#quick-links)**
 
@@ -437,9 +378,9 @@ Returns the value of the first element in the array that satisfies the provided 
 
 #### Browser Support for `Array.prototype.find()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔ | ✔ | 25.0 ✔ |  ✖  |  32.0 ✔ |  7.1 ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|     |           45.0 ✔                   |                   ✔                   |                   25.0 ✔                     |              ✖              |              32.0 ✔                 |                  7.1 ✔                   |
 
 **[⬆ back to top](#quick-links)**
 
@@ -473,9 +414,9 @@ Returns the index of the first element in the array that satisfies the provided 
 
 #### Browser Support for `Array.prototype.findIndex()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔ | ✔ | 25.0 ✔ |  ✖  |  32.0 ✔ |  7.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         45.0 ✔          |          ✔          |          25.0 ✔           |        ✖        |        32.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -511,9 +452,9 @@ Returns the first element of an array. Passing n will return the first n element
 
 #### Browser Support for `Array.prototype.slice()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  |  1.0 ✔  |  ✔  |  ✔  | ✔  |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|       |           1.0 ✔                  |                  ✔                  |                    1.0 ✔                    |              ✔              |                    ✔                    |                       ✔                      |
 
 **[⬆ back to top](#quick-links)**
 
@@ -543,23 +484,23 @@ Flattens array a single level deep.
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: |  :-: |
-  46.0 ✔ |  ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |           4 ✔           |
 
 #### Browser Support for `Array.prototype.flat()`
 
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-:-: | :-: | :-: | :-: | :-: | :-: |
-69 ✔ | ✖ | 62 ✔ | ✖ | 56 ✔ | 12 ✔ |
+| | | | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| | | | :---------------------------------------------------------------------------------: | :-----------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
+|          |          |          |          69 ✔                                         |                                     ✖                                     |                                         62 ✔                                             |                             ✖                             |                                 56 ✔                                     |                                     12 ✔                                         |
 
 #### Browser Support for `Array.prototype.flatMap()`
 
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-:-: | :-: | :-: | :-: | :-: | :-: |
-69 ✔ | ✖ | 62 ✔ | ✖ | 56 ✔ | 12 ✔ |
+| | | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| | | :-------------------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------------: | :-------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------------: |
+|          |          |          69 ✔                               |                            ✖                            |                               62 ✔                                  |                      ✖                      |                         56 ✔                            |                            12 ✔                               |
 
 **[⬆ back to top](#quick-links)**
 
@@ -592,23 +533,23 @@ Recursively flattens array.
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  46.0 ✔ |  ✔ | 16.0 ✔ |  ✖  |  37.0 ✔ |  7.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |          ✔          |          16.0 ✔           |        ✖        |        37.0 ✔         |          7.1 ✔          |
 
 
 #### Browser Support for `Array.prototype.flat()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-:-: | :-: | :-: | :-: | :-: | :-: |
-69 ✔ | ✖ | 62 ✔ | ✖ | 56 ✔ | 12 ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|          |          69 ✔                     |                   ✖                   |                     62 ✔                       |               ✖               |                 56 ✔                   |                   12 ✔                     |
 
 
 #### Browser Support for `Array.prototype.flatMap()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-:-: | :-: | :-: | :-: | :-: | :-: |
-69 ✔ | ✖ | 62 ✔ | ✖ | 56 ✔ | 12 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          69 ✔           |          ✖          |           62 ✔            |        ✖        |         56 ✔          |          12 ✔           |
 
 
 **[⬆ back to top](#quick-links)**
@@ -639,9 +580,9 @@ Returns an object composed from key-value pairs.
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|     |                 ✔                      |                  ✔                   |                     3.0 ✔                     |          9.0 ✔          |              10.5 ✔                 |                  4.0 ✔                   |
 
 **[⬆ back to top](#quick-links)**
 
@@ -672,35 +613,9 @@ Gets the first element or all but the first element.
 
 #### Browser Support for Spread in array literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  46.0 ✔  | 12.0 ✔ |  16.0 ✔ |  ✖ |  37.0 ✔ | 8.0 ✔  |
-
-**[⬆ back to top](#quick-links)**
-
-### _.indexOf
-
-Returns the first index at which a given element can be found in the array, or -1 if it is not present.
-
-  ```js
-  // Underscore/Lodash
-  var array = [2, 9, 9]
-  var result = _.indexOf(array, 2)
-  console.log(result)
-  // output: 0
-
-  // Native
-  var array = [2, 9, 9]
-  var result = array.indexOf(2)
-  console.log(result)
-  // output: 0
-  ```
-
-#### Browser Support for `Array.prototype.indexOf()`
-
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔  |  1.5 ✔ |  9.0 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -729,9 +644,9 @@ Returns an array that is the intersection of all the arrays. Each value in the r
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -774,9 +689,9 @@ Creates a slice of array with n elements taken from the end.
 
 #### Browser Support for `Array.prototype.slice()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  |  1.0 ✔  |  ✔  |  ✔  | ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          1.0 ✔          |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -797,9 +712,9 @@ Returns true if given value is an array.
 
   #### Browser Support for `Array.isArray()`
 
- ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  5.0 ✔  |  ✔  | 4.0 ✔  |  9.0 ✔  |  10.5 ✔  | 5.0 ✔  |
+ | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+ | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+ |          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        10.5 ✔         |          5.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -819,9 +734,9 @@ Checks if value is classified as an ArrayBuffer object.
 
   #### Browser Support for `instanceof`
 
- ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔  | 1.0 ✔  | ✔  | ✔  | ✔  |
+ | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+ | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+ |            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -843,9 +758,9 @@ Joins a list of elements in an array with a given separator.
 
 #### Browser Support for `Array.prototype.join()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |   ✔  | 1.0 ✔ |  5.5 ✔  |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -883,9 +798,9 @@ Returns the last element of an array. Passing n will return the last n elements 
 
 #### Browser Support for `Array.prototype.concat()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  | 1.0 ✔  | 5.5 ✔  |  ✔  | ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -909,9 +824,9 @@ Returns the index of the last occurrence of value in the array, or -1 if value i
 
 #### Browser Support for `Array.prototype.lastIndexOf()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 1.5 ✔  | 9.0 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -939,9 +854,9 @@ It's exposed on _ because previously, like `Underscore`, it was only exposed in 
 
 #### Browser Support for `Array.prototype.reverse()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  9 ✔ |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -962,9 +877,9 @@ Returns a shallow copy of a portion of an array into a new array object selected
 
 #### Browser Support for `Array.prototype.slice()`
 
- ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  |  ✔  |  1.0 ✔  |  ✔  |  ✔  |  ✔  |
+ | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+ | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+ |          1.0 ✔          |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -988,9 +903,9 @@ Returns an array where matching items are filtered.
 
 #### Browser Support for `Array.prototype.filter()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  | ✔ | 1.5 ✔ |  9 ✔ |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          1.0 ✔          |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1034,15 +949,15 @@ Iterates over a list of elements, yielding each in turn to an iteratee function.
 
 #### Browser Support for `Array.prototype.forEach()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  9.0 ✔  |  ✔  |  ✔  |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|         |             ✔                      |                   ✔                   |                     1.5 ✔                     |          9.0 ✔          |                    ✔                    |                      ✔                      |
 
 #### Browser Support for `Object.entries().forEach()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  54 ✔  | 14 ✔ | 47 ✔ |  ✖  |  41 ✔  |  10.1✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          54 ✔           |        14 ✔         |           47 ✔            |        ✖        |         41 ✔          |          10.1✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1073,9 +988,9 @@ Tests whether all elements in the array pass the test implemented by the provide
 
 #### Browser Support fpr `Array.prototype.every()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  9.0 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1105,9 +1020,9 @@ Creates a new array with all elements that pass the test implemented by the prov
 
 #### Browser Support for `Array.prototype.filter()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  9 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1141,9 +1056,9 @@ Group items by key.
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔  | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1170,15 +1085,15 @@ Checks if a value is in collection.
 
 #### Browser Support for `Array.prototype.includes`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  47.0 ✔  | 14.0 ✔ | 43.0 ✔ |  ✖  |  34.0 ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         47.0 ✔          |       14.0 ✔        |          43.0 ✔           |        ✖        |        34.0 ✔         |          9.0 ✔          |
 
 #### Browser Support for `Array.prototype.indexOf`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔ | ✔ | 1.5 ✔ | 9.0 ✔ | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1215,9 +1130,9 @@ Creates an object composed of keys generated from the results of running each el
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | 12.0 ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |       12.0 ✔        |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1245,9 +1160,9 @@ Translates all items in an array or object to new array of items.
 
 #### Browser Support for `Array.prototype.map()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  9.0 ✔  |  ✔ |  ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1300,9 +1215,9 @@ Extract a functor and use es2015 for better code
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|     |                 ✔                      |                   ✔                   |                     3.0 ✔                     |          9.0 ✔          |              10.5 ✔                 |                  4.0 ✔                   |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1328,9 +1243,9 @@ Extract a functor and use es2015 for better code
 
 #### Browser Support for `Array.prototype.map()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 1.5 ✔ |  9.0 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1358,9 +1273,9 @@ Applies a function against an accumulator and each value of the array (from left
 
 #### Browser Support for `Array.prototype.reduce()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] |  ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1391,15 +1306,15 @@ Creates an array of numbers progressing from start up to.
 
 #### Browser Support for `Array.from()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
- 45.0 ✔  |  ✔ |  32.0 ✔ |  ✖   |  ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         45.0 ✔          |          ✔          |          32.0 ✔           |        ✖        |           ✔           |          9.0 ✔          |
 
 #### Browser Support for keys and spread in Array literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
- 46.0 ✔  |  12.0 ✔ |  16.0 ✔ |  ✖ | 37.0 ✔ |  7.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1427,9 +1342,9 @@ This method is like _.reduce except that it iterates over elements of collection
 
 #### Browser Support for `Array.prototype.reduceRight()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 3.0 ✔ |  9.0 ✔  |  10.5 ✔ |  4.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1458,9 +1373,9 @@ Gets a random element from `array`.
 
 #### Browser Support for `Array.prototype.length()` and `Math.random()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.0 ✔ |  ✔  |  ✔ |  ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1482,9 +1397,9 @@ Returns the number of values in the collection.
 
 #### Browser Support for `Object.keys()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  5.0 ✔  | ✔ | 4.0 ✔ |  9.0 ✔ |  12.0 ✔ |  5.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        12.0 ✔         |          5.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1515,9 +1430,9 @@ Tests whether any of the elements in the array pass the test implemented by the 
 
 #### Browser Support for `Array.prototype.some()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.5 ✔ |  ✔ 9.0  |  ✔  | ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      ✔ 9.0      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1554,9 +1469,9 @@ Sorts an array of object based on an object key provided by a parameter (note th
 
 #### Browser Support for `Array.prototype.concat()` and `Array.prototype.sort()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  1.0 ✔  | ✔ | 1.0 ✔ |  5.5 ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1580,9 +1495,9 @@ Produces a duplicate-free version of the array, using === to test object equalit
 
 #### Browser Support for Spread in array literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
- 46.0  ✔  | 12.0 ✔ | 16.0 ✔ |  ✖  |  37.0 ✔  |  8.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0  ✔         |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1612,9 +1527,9 @@ Creates a version of the function that will only be run after first being called
 
 #### Browser Support for `Array.prototype.forEach()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-   ✔  |  ✔ |  1.5 ✔ |  9.0 ✔ |  ✔  | ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
  **[⬆ back to top](#quick-links)**
 
@@ -1642,9 +1557,9 @@ Create a new function that calls _func_ with _thisArg_ and _args_.
 
 #### Browser Support for `Function.prototype.bind()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  7.0 ✔  |  ✔ | 4.0 ✔ |  9.0 ✔ |  11.6 ✔ |  5.1 ✔  |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+|| :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|  |                7.0 ✔                  |                  ✔                   |                     4.0 ✔                     |          9.0 ✔           |              11.6 ✔                 |                  5.1 ✔                  |
 
  **[⬆ back to top](#quick-links)**
  
@@ -1671,9 +1586,9 @@ jQuery(window).on('resize', debounce(calculateLayout, 150));
   ```
 #### Browser Support for `debounce`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  7.0 ✔  |  ✔ | 4.0 ✔ |  9.0 ✔ |  11.6 ✔ |  5.1 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          7.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        11.6 ✔         |          5.1 ✔          |
 
  **[⬆ back to top](#quick-links)**
  
@@ -1710,9 +1625,9 @@ Create a new function that calls _func_ with _args_.
 
 #### Browser Support for Spread
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  46.0 ✔ | 12.0 ✔ | 16.0 ✔ |  ✖  |  37.0 ✔ |  8.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1738,9 +1653,9 @@ Create a new function that limits calls to _func_ to once every given timeframe.
   ```
 #### Browser Support for `throttle`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
- :-: | :-: | :-: | :-: | :-: | :-: |
-  5.0 ✔  |  12.0 ✔ | 3.0 ✔ |  9.0 ✔ |  10.5 ✔ |  4.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          5.0 ✔          |       12.0 ✔        |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
  **[⬆ back to top](#quick-links)**
  
@@ -1763,9 +1678,9 @@ console.log(3 > 1);
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | ✔ |  ✔  | ✔ | ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+| |                     ✔                      |                   ✔                   |                         ✔                         |              ✔              |                     ✔                     |                       ✔                       |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1785,9 +1700,9 @@ console.log(3 >= 1);
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | ✔ |  ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1826,9 +1741,9 @@ Checks if value is an empty object or collection.
 
 #### Browser Support for `Array.prototype.includes()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-   47.0 ✔  | 14.0 ✔ | 43.0 ✔ |  ✖ |  34.0 ✔ |  9.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         47.0 ✔          |       14.0 ✔        |          43.0 ✔           |        ✖        |        34.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1852,9 +1767,9 @@ Converts value to a finite number.
   ```
 #### Browser Support for `Number.isFinite()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  19.0 ✔  |  ✔ | 16.0 ✔ |  ✖  |  15.0 ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         19.0 ✔          |          ✔          |          16.0 ✔           |        ✖        |        15.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1877,9 +1792,9 @@ Checks if value is an integer.
   ```
 #### Browser Support for `Number.isInteger()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  12 ✔ | 16.0 ✔ |  ✖  |  ✔ |  ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |        12 ✔         |          16.0 ✔           |        ✖        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1910,15 +1825,15 @@ Voice from the Lodash author:
 
 #### Browser Support for `isNaN`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ |  1.0 ✔ |  ✔ |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 #### Browser Support for `Number.isNaN`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  25.0 ✔ | ✔ |  15.0 ✔ |  ✖ |  ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         25.0 ✔          |          ✔          |          15.0 ✔           |        ✖        |           ✔           |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1946,9 +1861,9 @@ console.log(undefined == null)
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | ✔ |  ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1972,9 +1887,9 @@ console.log(void 0 === null);
 
 #### Browser Support
 
-![Chrome][chrome-image] |  ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | ✔ |  ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1996,9 +1911,9 @@ console.log(a === undefined);
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1 ✔ |  ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |            1 ✔            |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2039,9 +1954,9 @@ The method is used to copy the values of all enumerable own properties from one 
 
 #### Browser Support for `Object.assign()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔  | ✔ | 34.0 ✔ |  ✖  |  32.0 ✔ |  9.0 ✔  |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|   |             45.0 ✔                  |                   ✔                   |                   34.0 ✔                     |              ✖              |              32.0 ✔                 |                  9.0 ✔                  |
 
  **[⬆ back to top](#quick-links)**
 
@@ -2091,9 +2006,9 @@ The method is used to copy the values of all enumerable own and inherited proper
 
 #### Browser Support for `Object.assign()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔  | ✔ | 34.0 ✔ |  ✖  |  32.0 ✔ |  9.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         45.0 ✔          |          ✔          |          34.0 ✔           |        ✖        |        32.0 ✔         |          9.0 ✔          |
 
  **[⬆ back to top](#quick-links)**
 
@@ -2131,9 +2046,9 @@ Gets the value at path of object.
 
 #### Browser Support for Object destructing
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  49.0 ✔  | 14.0 ✔ |  41.0 ✔ |  ✖  |  41.0 ✔ |  8.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         49.0 ✔          |       14.0 ✔        |          41.0 ✔           |        ✖        |        41.0 ✔         |          8.0 ✔          |
 
   **[⬆ back to top](#quick-links)**
 
@@ -2155,9 +2070,9 @@ Retrieves all the names of the object's own enumerable properties.
 
 #### Browser Support for `Object.keys()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: |  :-: |
-  5.0 ✔  | ✔ | 4.0 ✔ |  9.0 ✔ |  12.0 ✔ |  5.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        12.0 ✔         |          5.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2181,9 +2096,9 @@ Returns a copy of the object, filtered to omit the keys specified.
 
 #### Browser Support for Spread in object literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  60.0 ✔ | ✖ | 55.0 ✔ |  ✖ |  37.0 ✔ | ✖ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         60.0 ✔          |          ✖          |          55.0 ✔           |        ✖        |        37.0 ✔         |            ✖            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2222,9 +2137,9 @@ Creates an object composed of the object properties predicate returns truthy for
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  38.0 ✔ | ✔ | 13.0 ✔ |  12.0 ✔  |  25.0 ✔ | 7.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         38.0 ✔          |          ✔          |          13.0 ✔           |     12.0 ✔      |        25.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2257,9 +2172,9 @@ Creates an object composed of the object properties predicate returns truthy for
 
 #### Browser Support
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: |  :-: |
-  ✔  | ✔ |  ✔ | 6.0 ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |      6.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2282,9 +2197,9 @@ Retrieves all the given object's own enumerable property `[ key, value ]` pairs.
 
 #### Browser Support for `Object.entries()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  54.0 ✔  | 14.0 ✔  | 47.0 ✔ |  ✖  |  41.0 ✔ |  10.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         54.0 ✔          |       14.0 ✔        |          47.0 ✔           |        ✖        |        41.0 ✔         |         10.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2306,9 +2221,9 @@ Retrieves all the given object's own enumerable property values.
 
 #### Browser Support for `Object.values()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  54.0 ✔  | 14.0 ✔ |  47.0 ✔ |  ✖  |  41.0 ✔ |  10.1 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         54.0 ✔          |       14.0 ✔        |          47.0 ✔           |        ✖        |        41.0 ✔         |         10.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2342,9 +2257,9 @@ Checks if string ends with the given target string.
 
 #### Browser Support for `String.prototype.endsWith()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  41.0 ✔  |  ✔ | 17.0 ✔ |  ✖  |  28.0 ✔ |  9.0 ✔ |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|   |             41.0 ✔                  |                  ✔                   |                   17.0 ✔                     |              ✖              |              28.0 ✔                 |                  9.0 ✔                   |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2370,9 +2285,9 @@ Pads the current string with another string (multiple times, if needed) until th
 
 #### Browser Support for `String.prototype.padStart()` and `String.prototype.padEnd()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  57.0 ✔  |  15.0 ✔ | 48.0 ✔ |  ✖  |  44.0 ✔ |  10.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         57.0 ✔          |       15.0 ✔        |          48.0 ✔           |        ✖        |        44.0 ✔         |         10.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2394,9 +2309,9 @@ Checks if string starts with the given target string.
 
 #### Browser Support for `String.prototype.startsWith()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  41.0 ✔  |  ✔ | 17.0 ✔ |  ✖  |  28.0 ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         41.0 ✔          |          ✔          |          17.0 ✔           |        ✖        |        28.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2418,9 +2333,9 @@ Repeats the given string n times.
 
 #### Browser Support for `String.prototype.repeat()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  41.0 ✔  | ✔ | 24.0 ✔ |  ✖  |  28.0 ✔ |  9.0 ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         41.0 ✔          |          ✔          |          24.0 ✔           |        ✖        |        28.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2445,9 +2360,9 @@ returns a new string with some or all matches of a `pattern` replaced by a `repl
 
 #### Browser Support for `String.prototype.replace()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ | 1.0 ✔ |  ✔  |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
   
@@ -2469,9 +2384,9 @@ Splits string by separator.
 
 #### Browser Support for `String.prototype.split()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ |  1.0 ✔ |  ✔  | ✔ | ✔ |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2496,9 +2411,9 @@ Create a template function.
 
 #### Browser Support for String (template) literals
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  41.0 ✔  | 12.0 ✔ | 34.0 ✔ |  ✖  |  28.0 ✔ |  9.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         41.0 ✔          |       12.0 ✔        |          34.0 ✔           |        ✖        |        28.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2520,9 +2435,9 @@ Lowercases a given string.
 
 #### Browser Support for `String.prototype.toLowerCase()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 1.0 ✔ |  ✔  |  ✔ |  ✔  |
+| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
+| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
+|    |                  ✔                      |                  ✔                   |                     1.0 ✔                     |              ✔              |                    ✔                     |                      ✔                      |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2544,9 +2459,9 @@ Uppercases a given string.
 
 #### Browser Support for `String.prototype.toUpperCase()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔ | 1.0 ✔ |  ✔  |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2568,9 +2483,9 @@ Removes the leading and trailing whitespace characters from a string.
 
 #### Browser Support for `String.prototype.trim()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  5.0 ✔  | ✔ |  3.5 ✔ |  9.0 ✔  |  10.5 ✔ |  5.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|          5.0 ✔          |          ✔          |           3.5 ✔           |      9.0 ✔      |        10.5 ✔         |          5.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2593,9 +2508,9 @@ Uppercases the first letter of a given string
   console.log(result)
   // output: 'George'
   ```
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  | ✔ |  ✔ |  ✔  |  ✔ |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2622,9 +2537,9 @@ Removes all duplicates entries from an array.
 
 #### Browser Support for `new Set()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  38.0 ✔  | ✔ 12.0 | 13.0 ✔ |  11.0 ✔  |  25.0 ✔ |  7.1 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         38.0 ✔          |       ✔ 12.0        |          13.0 ✔           |     11.0 ✔      |        25.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2652,9 +2567,9 @@ Invokes the iteratee n times, returning an array of the results of each invocati
 
 #### Browser Support for `Array.from()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  45.0 ✔  | ✔ |  32.0 ✔ |  ✖  |  ✔ | 9.0 ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|         45.0 ✔          |          ✔          |          32.0 ✔           |        ✖        |           ✔           |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2690,9 +2605,9 @@ Checks if n is between start and up to, but not including, end. If end is not sp
 
   #### Browser Support for `Math.min() and Math.max()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-✔  |  ✔  |  ✔  |  ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2754,9 +2669,9 @@ Produces a random number between the inclusive lower and upper bounds. If only o
 
   #### Browser Support for `Math.random()`
 
-![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image]
-:-: | :-: | :-: | :-: | :-: | :-: |
-  ✔  |  ✔  |  ✔  |  ✔  |  ✔  |  ✔  |
+| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
+| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
+|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 

@@ -5,21 +5,8 @@
 1. [_.chunk](#_chunk)
 1. [_.compact](#_compact)
 1. [_.difference](#_difference)
-1. [_.fill](#_fill)
-1. [_.find](#_find)
-1. [_.findIndex](#_findindex)
-1. [_.first](#_first)
-1. [_.flatten](#_flatten)
 1. [_.flattenDeep](#_flattendeep)
 1. [_.fromPairs](#_frompairs)
-1. [_.head and _.tail](#_head-and-_tail)
-1. [_.intersection](#_intersection)
-1. [_.isArrayBuffer](#_isarraybuffer)
-1. [_.join](#_join)
-1. [_.last](#_last)
-1. [_.lastIndexOf](#_lastindexof)
-1. [_.reverse](#_reverse)
-1. [_.without](#_without)
 
 **[Collection*](#collection*)**
 
@@ -64,10 +51,6 @@ then Lodash/Underscore is the better option.*
 1. [_.pick](#_pick)
 1. [_.pickBy](#_pickby)
 1. [_.toPairs](#_topairs)
-
-**[String](#string)**
-
-1. [_.replace](#_replace)
 
 **[Number](#number)**
 
@@ -165,203 +148,6 @@ Similar to [without](#_without), but returns the values from array that are not 
 
 **[⬆ back to top](#quick-links)**
 
-### _.fill
-
-Fills elements of array with value from start up to, but not including, end.
-*Note that `fill` is a mutable method in both native and Lodash/Underscore.*
-
-  ```js
-  // Underscore/Lodash
-  var array = [1, 2, 3]
-
-  _.fill(array, 'a')
-
-  console.log(array)
-  // output: ['a', 'a', 'a']
-
-  _.fill(Array(3), 2)
-  // output: [2, 2, 2]
-
-  _.fill([4, 6, 8, 10], '*', 1, 3)
-  // output: [4, '*', '*', 10]
-
-  // Native
-  var array = [1, 2, 3]
-
-  array.fill('a')
-
-  console.log(array)
-  // output: ['a', 'a', 'a']
-
-  Array(3).fill(2)
-  // output: [2, 2, 2]
-
-  [4, 6, 8, 10].fill('*', 1, 3)
-  // output: [4, '*', '*', 10]
-  ```
-
-#### Browser Support for `Array.prototype.fill()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         45.0 ✔          |          ✔          |          31.0 ✔           |        ✖        |        32.0 ✔         |           8 ✔           |
-
-**[⬆ back to top](#quick-links)**
-
-### _.find
-
-Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
-
-  ```js
-  // Underscore/Lodash
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ]
-
-  _.find(users, function (o) { return o.age < 40; })
-  // output: object for 'barney'
-
-  // Native
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ]
-
-  users.find(function (o) { return o.age < 40; })
-  // output: object for 'barney'
-  ```
-
-#### Browser Support for `Array.prototype.find()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|     |           45.0 ✔                   |                   ✔                   |                   25.0 ✔                     |              ✖              |              32.0 ✔                 |                  7.1 ✔                   |
-
-**[⬆ back to top](#quick-links)**
-
-### _.findIndex
-
-Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.
-
-  ```js
-  // Underscore/Lodash
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ]
-
-  var index = _.findIndex(users, function (o) { return o.age >= 40; })
-  console.log(index)
-  // output: 1
-
-  // Native
-  var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
-  ]
-
-  var index = users.findIndex(function (o) { return o.age >= 40; })
-  console.log(index)
-  // output: 1
-  ```
-
-#### Browser Support for `Array.prototype.findIndex()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         45.0 ✔          |          ✔          |          25.0 ✔           |        ✖        |        32.0 ✔         |          7.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.first
-
-Returns the first element of an array. Passing n will return the first n elements of the array.
-
-  ```js
-  // Underscore/Lodash
-  _.first([1, 2, 3, 4, 5]);
-  // => 1
-
-  _.first([1, 2, 3, 4, 5], 2);
-  // => [1, 2]
-
-  // Native
-  [1, 2, 3, 4, 5][0];
-  // => 1
-  //or
-  [].concat(1, 2, 3, 4, 5).shift()
-  // => 1
-  //or
-  [].concat([1, 2, 3, 4, 5]).shift()
-  // => 1
-
-  // Native (works even with potentially undefined/null, like _.first)
-  [].concat(undefined).shift()
-  // => undefined
-
-  [1, 2, 3, 4, 5].slice(0, 2);
-  // => [1, 2]
-  ```
-
-#### Browser Support for `Array.prototype.slice()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|       |           1.0 ✔                  |                  ✔                  |                    1.0 ✔                    |              ✔              |                    ✔                    |                       ✔                      |
-
-**[⬆ back to top](#quick-links)**
-
-### _.flatten
-
-Flattens array a single level deep.
-
-  ```js
-  // Underscore/Lodash
-  _.flatten([1, [2, [3, [4]], 5]]);
-  // => [1, 2, [3, [4]], 5]
-
-  // Native
-  const flatten = [1, [2, [3, [4]], 5]].reduce( (a, b) => a.concat(b), [])
-  // => [1, 2, [3, [4]], 5]
-  
-  const flatten = [].concat(...[1, [2, [3, [4]], 5]])
-  // => [1, 2, [3, [4]], 5]
-
-  // Native(ES2019)
-  const flatten = [1, [2, [3, [4]], 5]].flat()
-  // => [1, 2, [3, [4]], 5]
-
-  const flatten = [1, [2, [3, [4]], 5]].flatMap(number => number)
-  // => [1, 2, [3, [4]], 5]
-  ```
-
-#### Browser Support for `Array.prototype.reduce()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         46.0 ✔          |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |           4 ✔           |
-
-#### Browser Support for `Array.prototype.flat()`
-
-
-| | | | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| | | | :---------------------------------------------------------------------------------: | :-----------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
-|          |          |          |          69 ✔                                         |                                     ✖                                     |                                         62 ✔                                             |                             ✖                             |                                 56 ✔                                     |                                     12 ✔                                         |
-
-#### Browser Support for `Array.prototype.flatMap()`
-
-
-| | | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| | | :-------------------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------------------------------: | :-------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------------: |
-|          |          |          69 ✔                               |                            ✖                            |                               62 ✔                                  |                      ✖                      |                         56 ✔                            |                            12 ✔                               |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.flattenDeep
 
 Recursively flattens array.
@@ -444,39 +230,6 @@ Returns an object composed from key-value pairs.
 
 **[⬆ back to top](#quick-links)**
 
-### _.head and _.tail
-Gets the first element or all but the first element.
-
-  ```js
-  const array = [1, 2, 3]
-
-  // Underscore: _.first, _.head, _.take
-  // Lodash: _.first, _.head
-  _.head(array)
-  // output: 1
-
-  // Underscore: _.rest, _.tail, _.drop
-  // Lodash: _.tail
-  _.tail(array)
-  // output: [2, 3]
-
-
-  // Native
-  const [ head, ...tail ] = array
-  console.log(head)
-  // output: 1
-  console.log(tail)
-  // output [2, 3]
-  ```
-
-#### Browser Support for Spread in array literals
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.intersection
 Returns an array that is the intersection of all the arrays. Each value in the result is present in each of the arrays.
 
@@ -550,128 +303,6 @@ Creates a slice of array with n elements taken from the end.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |          1.0 ✔          |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.last
-
-Returns the last element of an array. Passing n will return the last n elements of the array.
-
-  ```js
-  // Underscore/Lodash
-  const numbers = [1, 2, 3, 4, 5];
-  _.last(numbers);
-  // => 5
-
-  _.last(numbers, 2);
-  // => [4, 5]
-
-  // Native
-  const numbers = [1, 2, 3, 4, 5];
-  numbers[numbers.length - 1];
-  // => 5
-  //or
-  numbers.slice(-1)[0];
-  // => 5
-  //or
-  [].concat(numbers).pop()
-  // => 5
-
-  // Native (works even with potentially undefined/null)
-  [].concat(undefined).pop()
-  // => undefined
-
-  numbers.slice(-2);
-  // => [4, 5]
-  ```
-
-#### Browser Support for `Array.prototype.concat()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.lastIndexOf
-
-Returns the index of the last occurrence of value in the array, or -1 if value is not present.
-
-  ```js
-  // Underscore/Lodash
-  var array = [2, 9, 9, 4, 3, 6]
-  var result = _.lastIndexOf(array, 9)
-  console.log(result)
-  // output: 2
-
-  // Native
-  var array = [2, 9, 9, 4, 3, 6]
-  var result = array.lastIndexOf(9)
-  console.log(result)
-  // output: 2
-  ```
-
-#### Browser Support for `Array.prototype.lastIndexOf()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.reverse
-:heavy_exclamation_mark:`Not in Underscore.js`
-Reverses array so that the first element becomes the last, the second element becomes the second to last, and so on.
-
-  ```js
-  // Lodash
-  var array = [1, 2, 3]
-  console.log(_.reverse(array))
-  // output: [3, 2, 1]
-
-  // Native
-  var array = [1, 2, 3]
-  console.log(array.reverse())
-  // output: [3, 2, 1]
-  ```
-
-Voice from the Lodash author:
-
->Lodash's `_.reverse` just calls `Array#reverse` and enables composition like `_.map(arrays, _.reverse).`
-It's exposed on _ because previously, like `Underscore`, it was only exposed in the chaining syntax.
->--- [jdalton](https://github.com/cht8687/You-Dont-Need-Lodash-Underscore/commit/22c4bcf2be48dd415d2b073759805562e520b615#)
-
-#### Browser Support for `Array.prototype.reverse()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.without
-:heavy_exclamation_mark:`Not in Underscore.js`
-Returns an array where matching items are filtered.
-
-  ```js
-  // Lodash
-  var array = [1, 2, 3]
-  console.log(_.without(array, 2))
-  // output: [1, 3]
-
-  // Native
-  var array = [1, 2, 3]
-  console.log(array.filter(function(value) {
-    return value !== 2;
-  }));
-  // output: [1, 3]
-  ```
-
-#### Browser Support for `Array.prototype.filter()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          1.0 ✔          |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -1476,7 +1107,6 @@ Checks if value is an empty object or collection.
 
 ## Object
 
-
 ### _.extend
 
 The method is used to copy the values of all enumerable own and inherited properties from one or more source objects to a target object.
@@ -1668,35 +1298,6 @@ Retrieves all the given object's own enumerable property `[ key, value ]` pairs.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         54.0 ✔          |       14.0 ✔        |          47.0 ✔           |        ✖        |        41.0 ✔         |         10.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-## String
-
-### _.replace
-returns a new string with some or all matches of a `pattern` replaced by a `replacement`
-
-  ```js
-  // Lodash
-  var re = /apples/gi;
-  var str = 'Apples are round, and apples are juicy.';
-  var newstr = _.replace(str, re, 'oranges');
-  console.log(newstr);
-  // output: 'oranges are round, and oranges are juicy.'
-
-  // Native
-  var re = /apples/gi;
-  var str = 'Apples are round, and apples are juicy.';
-  var result = str.replace(re, 'oranges');
-  console.log(result);
-  // output: 'oranges are round, and oranges are juicy.'
-  ```
-
-#### Browser Support for `String.prototype.replace()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 

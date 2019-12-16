@@ -67,15 +67,11 @@ then Lodash/Underscore is the better option.*
 
 **[Object](#object)**
 
-1. [_.assign](#_assign)
 1. [_.extend](#_extend)
 1. [_.get](#_get)
-1. [_.keys](#_keys)
-1. [_.omit](#_omit)
 1. [_.pick](#_pick)
 1. [_.pickBy](#_pickby)
 1. [_.toPairs](#_topairs)
-1. [_.values](#_values)
 
 **[String](#string)**
 
@@ -1703,46 +1699,6 @@ console.log(a === undefined);
 
 ## Object
 
-### _.assign
-
-The method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
-
-  ```js
-  // Underscore: _.extendOwn
-  // Lodash
-  function Foo() {
-    this.c = 3;
-  }
-  function Bar() {
-    this.e = 5;
-  }
-  Foo.prototype.d = 4;
-  Bar.prototype.f = 6;
-  var result = _.assign(new Foo, new Bar);
-  console.log(result);
-  // output: { 'c': 3, 'e': 5 }
-
-  // Native
-  function Foo() {
-    this.c = 3;
-  }
-  function Bar() {
-    this.e = 5;
-  }
-  Foo.prototype.d = 4;
-  Bar.prototype.f = 6;
-  var result = Object.assign({}, new Foo, new Bar);
-  console.log(result);
-  // output: { 'c': 3, 'e': 5 }
-  ```
-
-#### Browser Support for `Object.assign()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|   |             45.0 ✔                  |                   ✔                   |                   34.0 ✔                     |              ✖              |              32.0 ✔                 |                  9.0 ✔                  |
-
- **[⬆ back to top](#quick-links)**
 
 ### _.extend
 
@@ -1836,55 +1792,6 @@ Gets the value at path of object.
 
   **[⬆ back to top](#quick-links)**
 
-### _.keys
-
-Retrieves all the names of the object's own enumerable properties.
-
-  ```js
-  // Underscore/Lodash
-  var result = _.keys({one: 1, two: 2, three: 3})
-  console.log(result)
-  // output: ["one", "two", "three"]
-
-  // Native
-  var result2 = Object.keys({one: 1, two: 2, three: 3})
-  console.log(result2)
-  // output: ["one", "two", "three"]
-  ```
-
-#### Browser Support for `Object.keys()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        12.0 ✔         |          5.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.omit
-
-Returns a copy of the object, filtered to omit the keys specified.
-
-  ```js
-  var object = { 'a': 1, 'b': '2', 'c': 3 };
-
-  // Underscore/Lodash
-  var result = _.omit(object, ['a', 'c']);
-  console.log(result)
-  // output: { 'b': '2' }
-
-  // Native
-  var { a, c, ...result2 } = object;
-  console.log(result2)
-  // output: { 'b': '2' }
-  ```
-
-#### Browser Support for Spread in object literals
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         60.0 ✔          |          ✖          |          55.0 ✔           |        ✖        |        37.0 ✔         |            ✖            |
-
-**[⬆ back to top](#quick-links)**
 
 ### _.pick
 
@@ -1980,30 +1887,6 @@ Retrieves all the given object's own enumerable property `[ key, value ]` pairs.
   ```
 
 #### Browser Support for `Object.entries()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         54.0 ✔          |       14.0 ✔        |          47.0 ✔           |        ✖        |        41.0 ✔         |         10.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.values
-
-Retrieves all the given object's own enumerable property values.
-
-  ```js
-  // Underscore/Lodash
-  var result = _.values({one: 1, two: 2, three: 3})
-  console.log(result)
-  // output: [1, 2, 3]
-
-  // Native
-  var result2 = Object.values({one: 1, two: 2, three: 3})
-  console.log(result2)
-  // output: [1, 2, 3]
-  ```
-
-#### Browser Support for `Object.values()`
 
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |

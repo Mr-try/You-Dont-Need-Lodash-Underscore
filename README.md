@@ -1,88 +1,3 @@
-# You don't (may not) need Lodash/Underscore 
-[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/lodash-underscore)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cht8687/You-Dont-Need-Lodash-Underscore)
-
-Lodash and Underscore are great modern JavaScript utility libraries, and they are widely used by Front-end developers. However, when you are targeting modern browsers, you may find out that there are many methods which are already supported natively thanks to ECMAScript5 [ES5] and ECMAScript2015 [ES6]. If you want your project to require fewer dependencies, and you know your target browser clearly, then you may not need Lodash/Underscore.
-
-You are welcome to contribute with more items provided below.
-
-* If you are targeting legacy JavaScript engine with those ES5 methods, you can use [es5-shim](https://github.com/es-shims/es5-shim)
-
-* Please note that, the examples used below are just showing you the native alternative of performing certain tasks. For some of the functions, Lodash provides you more options than native built-ins. This list is not a 1:1 comparison.
-
-* Please send a PR if you want to add or modify the code. No need to open an issue unless it's something big and you want to discuss.
-
-
-## Voice of Developers
-
-> [Make use of native JavaScript object and array utilities before going big.](https://twitter.com/codylindley/status/692356631007342593)
-
-> &mdash;<cite>Cody Lindley, Author of [jQuery Cookbook](http://shop.oreilly.com/product/9780596159788.do) and [JavaScript Enlightenment](http://shop.oreilly.com/product/0636920027713.do)</cite>
-
-<!-- -->
-> [You probably don't need Lodash. Nice List of JavaScript methods which you can use natively.](https://twitter.com/daniellmb/status/692200768556916740)
-
-> &mdash;<cite>Daniel Lamb, Computer Scientist, Technical Reviewer of [Secrets of the JavaScript Ninja](https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition) and [Functional Programming in JavaScript](https://www.manning.com/books/functional-programming-in-javascript)</cite>
-
-<!-- -->
-> [I guess not, but I want it.](https://twitter.com/teropa/status/692280179666898944)
-
-> &mdash;<cite>Tero Parviainen, Author of [build-your-own-angular](http://teropa.info/build-your-own-angular)</cite>
-
-<!-- -->
-> [I'll admit, I've been guilty of overusing #lodash. Excellent resource.](https://twitter.com/therebelrobot/status/692907269512642561)
-
-> &mdash;<cite>@therebelrobot, Maker of web things, Facilitator for Node.js/io.js</cite>
-
-
-## ESLint Plugin
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/eslint-plugin-you-dont-need-lodash-underscore">
-    <img src="https://img.shields.io/npm/v/eslint-plugin-you-dont-need-lodash-underscore.svg?style=flat-square"
-      alt="NPM Version">
-  </a>
-  <a href="https://www.npmjs.org/package/eslint-plugin-you-dont-need-lodash-underscore">
-    <img src="http://img.shields.io/npm/dm/eslint-plugin-you-dont-need-lodash-underscore.svg?style=flat-square"
-      alt="Downloads">
-  </a>
-  <a href="https://travis-ci.org/you-dont-need/You-Dont-Need-Lodash-Underscore">
-    <img src="https://img.shields.io/travis/you-dont-need/You-Dont-Need-Lodash-Underscore/master.svg?style=flat-square"
-      alt="Build Status">
-  </a>
-  <a href="https://coveralls.io/github/you-dont-need/You-Dont-Need-Lodash-Underscore?branch=master">
-    <img src="https://img.shields.io/coveralls/you-dont-need/You-Dont-Need-Lodash-Underscore/master.svg?style=flat-square"
-      alt="Coverage Status" />
-  </a>
-  <a href="https://david-dm.org/you-dont-need/You-Dont-Need-Lodash-Underscore">
-    <img src="https://img.shields.io/david/you-dont-need/You-Dont-Need-Lodash-Underscore.svg?style=flat-square"
-         alt="Dependency Status">
-  </a>
-</p>
-
-If you're using [ESLint](http://eslint.org/), you can install a
-[plugin](http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin) that
-will help you identify places in your codebase where you don't (may not) need Lodash/Underscore.
-
-Install the plugin...
-
-```sh
-npm install --save-dev eslint-plugin-you-dont-need-lodash-underscore
-```
-
-...then update your config
-
-```js
-"extends" : ["plugin:you-dont-need-lodash-underscore/compatible"],
-```
-
-For more information, see [Configuring the ESLint Plugin](configuring.md)
-
-*:heavy_exclamation_mark:<b>Important:</b> Note that, while many Lodash methods are null safe (e.g. _.keys, _.entries),
-this is not necessarily the case for their Native equivalent. If null safety is critical for your application, we 
-suggest that you take extra precautions [e.g. consider using the native Object.keys as Object.keys(value || {})].*
-
-
 ## Quick Links
 
 **[Array](#array)**
@@ -167,12 +82,9 @@ then Lodash/Underscore is the better option.*
 
 **[String](#string)**
 
-1. [_.endsWith](#_endsWith)
 1. [_.padStart and _.padEnd](#_padstart-and-_padend)
-1. [_.repeat](#_repeat)
 1. [_.replace](#_replace)
 1. [_.split](#_split)
-1. [_.startsWith](#_startsWith)
 1. [_.template](#_template)
 1. [_.toLower](#_tolower)
 1. [_.toUpper](#_toupper)
@@ -2229,40 +2141,6 @@ Retrieves all the given object's own enumerable property values.
 
 ## String
 
-### _.endsWith
-:heavy_exclamation_mark:`Not in Underscore.js`
-Checks if string ends with the given target string.
-
-  ```js
-  // Lodash
-  _.endsWith('abc', 'c');
-  // => true
- 
-  _.endsWith('abc', 'b');
-  // => false
-  
-  _.endsWith('abc', 'b', 2);
-  // => true
-
-  // Native
-  'abc'.endsWith('c');
-  // => true
- 
-  'abc'.endsWith('b');
-  // => false
-  
-  'abc'.endsWith('b', 2);
-  // => true
-  ```
-
-#### Browser Support for `String.prototype.endsWith()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|   |             41.0 ✔                  |                  ✔                   |                   17.0 ✔                     |              ✖              |              28.0 ✔                 |                  9.0 ✔                   |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.padStart and _.padEnd
 :heavy_exclamation_mark:`Not in Underscore.js`
 Pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length.
@@ -2288,54 +2166,6 @@ Pads the current string with another string (multiple times, if needed) until th
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         57.0 ✔          |       15.0 ✔        |          48.0 ✔           |        ✖        |        44.0 ✔         |         10.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.startsWith
-:heavy_exclamation_mark:`Not in Underscore.js`
-Checks if string starts with the given target string.
-
-  ```js
-  // Lodash
-  var result = _.startsWith('abc', 'b', 1)
-  console.log(result)
-  // output: true
-
-  // Native
-  var result = 'abc'.startsWith('b', 1)
-  console.log(result)
-  // output: true
-  ```
-
-#### Browser Support for `String.prototype.startsWith()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         41.0 ✔          |          ✔          |          17.0 ✔           |        ✖        |        28.0 ✔         |          9.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.repeat
-:heavy_exclamation_mark:`Not in Underscore.js`
-Repeats the given string n times.
-
-  ```js
-  // Lodash
-  var result = _.repeat('abc', 2)
-  console.log(result)
-  // output: 'abcabc'
-
-  // Native
-  var result = 'abc'.repeat(2)
-  console.log(result)
-  // output: 'abcabc'
-  ```
-
-#### Browser Support for `String.prototype.repeat()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         41.0 ✔          |          ✔          |          24.0 ✔           |        ✖        |        28.0 ✔         |          9.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -2674,18 +2504,6 @@ Produces a random number between the inclusive lower and upper bounds. If only o
 |            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
-
-
-## Inspired by:
-
-* [You-Dont-Need-jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery)
-* [Rui's blog](http://ktei.github.io/2016/01/07/some-general-js-tips-1.html)
-
-
-# License
-
-MIT
-
 
 [chrome-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png
 [firefox-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png

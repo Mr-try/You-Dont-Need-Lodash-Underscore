@@ -3,8 +3,6 @@
 **[Array](#array)**
 
 1. [_.chunk](#_chunk)
-1. [_.compact](#_compact)
-1. [_.difference](#_difference)
 1. [_.flattenDeep](#_flattendeep)
 1. [_.fromPairs](#_frompairs)
 
@@ -14,28 +12,15 @@
 and will not work with objects. If this functionality is needed and no object method is provided,
 then Lodash/Underscore is the better option.*
 
-1. [_.each](#_each)
-1. [_.every](#_every)
-1. [_.filter](#_filter)
 1. [_.groupBy](#_groupby)
-1. [_.includes](#_includes)
 1. [_.keyBy](#_keyBy)
-1. [_.map](#_map)
 1. [_.minBy and _.maxBy](#_minby-and-_maxby)
 1. [_.orderBy](#_sortby-and-_orderby)
-1. [_.pluck](#_pluck)
 1. [_.range](#_range)
-1. [_.reduce](#_reduce)
-1. [_.reduceRight](#_reduceright)
-1. [_.size](#_size)
-1. [_.some](#_some)
 1. [_.sortBy](#_sortby-and-_orderby)
-1. [_.uniq](#_uniq)
 
 **[Function](#function)**
 
-1. [_.after](#_after)
-1. [_.bind](#_bind)
 1. [_.debounce](#_debounce)
 1. [_.partial](#_partial)
 1. [_.throttle](#_throttle)
@@ -94,57 +79,6 @@ chunk(['a', 'b', 'c', 'd'], 3);
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.compact
-
-Creates an array with all falsy values removed.
-
-  ```js
-  // Underscore/Lodash
-  _.compact([0, 1, false, 2, '', 3]);
-
-  // Native
-  [0, 1, false, 2, '', 3].filter(Boolean)
-  ```
-
-#### Browser Support for `array.prototype.filter`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.difference
-Similar to [without](#_without), but returns the values from array that are not present in the other arrays.
-
-  ```js
-  // Underscore/Lodash
-  console.log(_.difference([1, 2, 3, 4, 5], [5, 2, 10]))
-  // output: [1, 3, 4]
-
-  // Native
-  var arrays = [[1, 2, 3, 4, 5], [5, 2, 10]];
-  console.log(arrays.reduce(function(a, b) {
-    return a.filter(function(value) {
-      return !b.includes(value);
-    });
-  }));
-  // output: [1, 3, 4]
-
-  // ES6
-  let arrays = [[1, 2, 3, 4, 5], [5, 2, 10]];
-  console.log(arrays.reduce((a, b) => a.filter(c => !b.includes(c))));
-  // output: [1, 3, 4]
-  ```
-
-#### Browser Support for `Array.prototype.reduce()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
 
 **[⬆ back to top](#quick-links)**
 
@@ -312,117 +246,6 @@ Creates a slice of array with n elements taken from the end.
 and will not work with objects. If this functionality is needed and no object method is provided,
 then Lodash/Underscore is the better option.*
 
-### _.each
-
-Iterates over a list of elements, yielding each in turn to an iteratee function.
-
-  ```js
-  // Underscore/Lodash
-  //For arrays
-  _.each([1, 2, 3], function (value, index) {
-    console.log(value)
-  })
-  // output: 1 2 3
-
-  //For objects
-  _.each({'one':1, 'two':2, 'three':3}, function(value) {
-    console.log(value)
-  })
-  // output: 1 2 3
-
-  // Native
-  //For arrays
-  [1, 2, 3].forEach(function (value, index) {
-    console.log(value)
-  })
-  // output: 1 2 3
-
-  //For objects
-  Object.entries({'one':1, 'two':2, 'three':3}).forEach(function([key,value],index) {
-    console.log(value)
-  })
-  //output: 1 2 3
-  ```
-
-#### Browser Support for `Array.prototype.forEach()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|         |             ✔                      |                   ✔                   |                     1.5 ✔                     |          9.0 ✔          |                    ✔                    |                      ✔                      |
-
-#### Browser Support for `Object.entries().forEach()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          54 ✔           |        14 ✔         |           47 ✔            |        ✖        |         41 ✔          |          10.1✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.every
-
-Tests whether all elements in the array pass the test implemented by the provided function.
-
-  ```js
-  // Underscore/Lodash
-  function isLargerThanTen (element, index, array) {
-    return element >= 10
-  }
-  var array = [10, 20, 30]
-  var result = _.every(array, isLargerThanTen)
-  console.log(result)
-  // output: true
-
-  // Native
-  function isLargerThanTen (element, index, array) {
-    return element >= 10
-  }
-
-  var array = [10, 20, 30]
-  var result = array.every(isLargerThanTen)
-  console.log(result)
-  // output: true
-  ```
-
-#### Browser Support fpr `Array.prototype.every()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.filter
-
-Creates a new array with all elements that pass the test implemented by the provided function.
-
-  ```js
-  // Underscore/Lodash
-  function isBigEnough (value) {
-    return value >= 10
-  }
-  var array = [12, 5, 8, 130, 44]
-  var filtered = _.filter(array, isBigEnough)
-  console.log(filtered)
-  // output: [12, 130, 44]
-
-  // Native
-  function isBigEnough (value) {
-    return value >= 10
-  }
-  var array = [12, 5, 8, 130, 44]
-  var filtered = array.filter(isBigEnough)
-  console.log(filtered)
-  // output: [12, 130, 44]
-  ```
-
-#### Browser Support for `Array.prototype.filter()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |       9 ✔       |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.groupBy
 
 Group items by key.
@@ -456,41 +279,6 @@ Group items by key.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.includes
-
-Checks if a value is in collection.
-
-  ```js
-  var array = [1, 2, 3]
-  // Underscore/Lodash - also called _.contains
-  _.includes(array, 1)
-  // output: true
-
-  // Native
-  var array = [1, 2, 3]
-  array.includes(1)
-  // output: true
-
-  // Native (does not use same value zero)
-  var array = [1, 2, 3]
-  array.indexOf(1) > -1
-  // output: true
-  ```
-
-#### Browser Support for `Array.prototype.includes`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         47.0 ✔          |       14.0 ✔        |          43.0 ✔           |        ✖        |        34.0 ✔         |          9.0 ✔          |
-
-#### Browser Support for `Array.prototype.indexOf`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -530,36 +318,6 @@ Creates an object composed of keys generated from the results of running each el
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |            ✔            |       12.0 ✔        |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.map
-
-Translates all items in an array or object to new array of items.
-
-  ```js
-  // Underscore/Lodash
-  var array1 = [1, 2, 3]
-  var array2 = _.map(array1, function (value, index) {
-    return value * 2
-  })
-  console.log(array2)
-  // output: [2, 4, 6]
-
-  // Native
-  var array1 = [1, 2, 3]
-  var array2 = array1.map(function (value, index) {
-    return value * 2
-  })
-  console.log(array2)
-  // output: [2, 4, 6]
-  ```
-
-#### Browser Support for `Array.prototype.map()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -618,64 +376,6 @@ Extract a functor and use es2015 for better code
 
 **[⬆ back to top](#quick-links)**
 
-### _.pluck
-
-  `array.map` or `_.map` can also be used to replace `_.pluck`. Lodash v4.0 removed `_.pluck` in favor of `_.map` with iteratee shorthand. Details can be found in [Changelog](https://github.com/lodash/lodash/wiki/Changelog)
-
-  ```js
-  // Underscore/Lodash
-  var array1 = [{name: "Alice"}, {name: "Bob"}, {name: "Jeremy"}]
-  var names = _.pluck(array1, "name")
-  console.log(names)
-  // output: ["Alice", "Bob", "Jeremy"]
-
-  // Native
-  var array1 = [{name: "Alice"}, {name: "Bob"}, {name: "Jeremy"}]
-  var names = array1.map(function(x){
-    return x.name
-  })
-  console.log(names)
-  // output: ["Alice", "Bob", "Jeremy"]
-  ```
-
-#### Browser Support for `Array.prototype.map()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.reduce
-
-Applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.
-
-  ```js
-  // Underscore/Lodash
-  var array = [0, 1, 2, 3, 4]
-  var result = _.reduce(array, function (previousValue, currentValue, currentIndex, array) {
-    return previousValue + currentValue
-  })
-  console.log(result)
-  // output: 10
-
-  // Native
-  var array = [0, 1, 2, 3, 4]
-  var result = array.reduce(function (previousValue, currentValue, currentIndex, array) {
-    return previousValue + currentValue
-  })
-  console.log(result)
-  // output: 10
-  ```
-
-#### Browser Support for `Array.prototype.reduce()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.range
 
 Creates an array of numbers progressing from start up to.
@@ -714,37 +414,6 @@ Creates an array of numbers progressing from start up to.
 |         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
-
-### _.reduceRight
-
-This method is like _.reduce except that it iterates over elements of collection from right to left.
-
-  ```js
-  // Underscore/Lodash
-  var array = [0, 1, 2, 3, 4]
-  var result = _.reduceRight(array, function (previousValue, currentValue, currentIndex, array) {
-    return previousValue - currentValue
-  })
-  console.log(result)
-  // output: -2
-
-  // Native
-  var array = [0, 1, 2, 3, 4]
-  var result = array.reduceRight(function (previousValue, currentValue, currentIndex, array) {
-    return previousValue - currentValue
-  })
-  console.log(result)
-  // output: -2
-  ```
-
-#### Browser Support for `Array.prototype.reduceRight()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           3.0 ✔           |      9.0 ✔      |        10.5 ✔         |          4.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.sample
 
 Gets a random element from `array`.
@@ -773,63 +442,6 @@ Gets a random element from `array`.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.size
-
-Returns the number of values in the collection.
-
-  ```js
-  // Underscore/Lodash
-  var result = _.size({one: 1, two: 2, three: 3})
-  console.log(result)
-  // output: 3
-
-  // Native
-  var result2 = Object.keys({one: 1, two: 2, three: 3}).length
-  console.log(result2)
-  // output: 3
-  ```
-
-#### Browser Support for `Object.keys()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          5.0 ✔          |          ✔          |           4.0 ✔           |      9.0 ✔      |        12.0 ✔         |          5.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.some
-
-Tests whether any of the elements in the array pass the test implemented by the provided function.
-
-  ```js
-  // Underscore/Lodash
-  function isLargerThanTen (element, index, array) {
-    return element >= 10
-  }
-  var array = [10, 9, 8]
-  var result = _.some(array, isLargerThanTen)
-  console.log(result)
-  // output: true
-
-  // Native
-  function isLargerThanTen (element, index, array) {
-    return element >= 10
-  }
-
-  var array = [10, 9, 8]
-  var result = array.some(isLargerThanTen)
-  console.log(result)
-  // output: true
-  ```
-
-#### Browser Support for `Array.prototype.some()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      ✔ 9.0      |           ✔           |            ✔            |
 
 **[⬆ back to top](#quick-links)**
 
@@ -872,94 +484,8 @@ Sorts an array of object based on an object key provided by a parameter (note th
 
 **[⬆ back to top](#quick-links)**
 
-### _.uniq
-
-Produces a duplicate-free version of the array, using === to test object equality.
-
-  ```js
-  // Underscore/Lodash
-  var array = [1, 2, 1, 4, 1, 3]
-  var result = _.uniq(array)
-  console.log(result)
-  // output: [1, 2, 4, 3]
-
-  // Native
-  var array = [1, 2, 1, 4, 1, 3];
-  var result = [...new Set(array)];
-  console.log(result)
-  // output: [1, 2, 4, 3]
-  ```
-
-#### Browser Support for Spread in array literals
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         46.0  ✔         |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
 ## Function
 
-### _.after
-:heavy_exclamation_mark:`Note this is an alternative implementation`
-Creates a version of the function that will only be run after first being called count times. Useful for grouping asynchronous responses, where you want to be sure that all the async calls have finished, before proceeding.
-
-  ```js
-  var notes = ['profile', 'settings']
-  // Underscore/Lodash
-  var renderNotes = _.after(notes.length, render)
-  notes.forEach(function (note) {
-    console.log(note)
-    renderNotes()
-  })
-
-  // Native
-  notes.forEach(function (note, index) {
-    console.log(note)
-    if (notes.length === (index + 1)) {
-      render()
-    }
-  })
-  ```
-
-#### Browser Support for `Array.prototype.forEach()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.5 ✔           |      9.0 ✔      |           ✔           |            ✔            |
-
- **[⬆ back to top](#quick-links)**
-
-### _.bind
-Create a new function that calls _func_ with _thisArg_ and _args_.
-
-  ```js
-  var objA = {
-    x: 66,
-    offsetX: function(offset) {
-      return this.x + offset;
-    }
-  }
-
-  var objB = {
-    x: 67
-  };
-
-  // Underscore/Lodash
-  var boundOffsetX = _.bind(objA.offsetX, objB, 0);
-
-  // Native
-  var boundOffsetX = objA.offsetX.bind(objB, 0);
-  ```
-
-#### Browser Support for `Function.prototype.bind()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-|| :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|  |                7.0 ✔                  |                  ✔                   |                     4.0 ✔                     |          9.0 ✔           |              11.6 ✔                 |                  5.1 ✔                  |
-
- **[⬆ back to top](#quick-links)**
- 
 ### _.debounce
 Create a new function that calls _func_ with _thisArg_ and _args_.
 

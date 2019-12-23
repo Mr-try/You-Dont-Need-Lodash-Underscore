@@ -3,7 +3,6 @@
 **[Array](#array)**
 
 1. [_.chunk](#_chunk)
-1. [_.flattenDeep](#_flattendeep)
 1. [_.fromPairs](#_frompairs)
 
 **[Collection*](#collection*)**
@@ -14,10 +13,6 @@ then Lodash/Underscore is the better option.*
 
 1. [_.groupBy](#_groupby)
 1. [_.keyBy](#_keyBy)
-1. [_.minBy and _.maxBy](#_minby-and-_maxby)
-1. [_.orderBy](#_sortby-and-_orderby)
-1. [_.range](#_range)
-1. [_.sortBy](#_sortby-and-_orderby)
 
 **[Function](#function)**
 
@@ -36,11 +31,6 @@ then Lodash/Underscore is the better option.*
 1. [_.pick](#_pick)
 1. [_.pickBy](#_pickby)
 1. [_.toPairs](#_topairs)
-
-**[Number](#number)**
-
-1. [_.inRange](#_inRange)
-2. [_.random](#_random)
 
 ## Array
 
@@ -79,56 +69,6 @@ chunk(['a', 'b', 'c', 'd'], 3);
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          8.0 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-### _.flattenDeep
-
-Recursively flattens array.
-
-  ```js
-  // Underscore/Lodash
-  _.flattenDeep([1, [2, [3, [4]], 5]]);
-  // => [1, 2, 3, 4, 5]
-
-  // Native
-  const flattenDeep = (arr) => Array.isArray(arr)
-    ? arr.reduce( (a, b) => a.concat(flattenDeep(b)) , [])
-    : [arr]
-
-  flattenDeep([1, [[2], [3, [4]], 5]])
-  // => [1, 2, 3, 4, 5]
-  
-  // Native(ES2019)
-  [1, [2, [3, [4]], 5]].flat(Infinity)
-  // => [1, 2, 3, 4, 5]
-  
-  const flattenDeep = (arr) => arr.flatMap((subArray, index) => Array.isArray(subArray) ? flattenDeep(subArray) : subArray)
-
-  flattenDeep([1, [[2], [3, [4]], 5]])
-  // => [1, 2, 3, 4, 5]
-  ```
-
-#### Browser Support
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         46.0 ✔          |          ✔          |          16.0 ✔           |        ✖        |        37.0 ✔         |          7.1 ✔          |
-
-
-#### Browser Support for `Array.prototype.flat()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|          |          69 ✔                     |                   ✖                   |                     62 ✔                       |               ✖               |                 56 ✔                   |                   12 ✔                     |
-
-
-#### Browser Support for `Array.prototype.flatMap()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          69 ✔           |          ✖          |           62 ✔            |        ✖        |         56 ✔          |          12 ✔           |
-
 
 **[⬆ back to top](#quick-links)**
 
@@ -321,61 +261,6 @@ Creates an object composed of keys generated from the results of running each el
 
 **[⬆ back to top](#quick-links)**
 
-### _.minBy and _.maxBy
-
-Use Array#reduce for find the maximum or minimum collection item
-
-  ```js
-  // Underscore/Lodash
-  var data = [{ value: 6 }, { value: 2 }, { value: 4 }]
-  var minItem = _.minBy(data, 'value')
-  var maxItem = _.maxBy(data, 'value')
-  console.log(minItem, maxItem)
-  // output: { value: 2 } { value: 6 }
-
-  // Native
-  var data = [{ value: 6 }, { value: 2 }, { value: 4 }]
-  var minItem = data.reduce(function(a, b) { return a.value <= b.value ? a : b }, {})
-  var maxItem = data.reduce(function(a, b) { return a.value >= b.value ? a : b }, {})
-  console.log(minItem, maxItem)
-  // output: { value: 2 }, { value: 6 }
-  ```
-
-Extract a functor and use es2015 for better code
-
-  ```js
-  // utils
-  const makeSelect = (comparator) => (a, b) => comparator(a, b) ? a : b
-  const minByValue = makeSelect((a, b) => a.value <= b.value)
-  const maxByValue = makeSelect((a, b) => a.value >= b.value)
-
-  // main logic
-  const data = [{ value: 6 }, { value: 2 }, { value: 4 }]
-  const minItem = data.reduce(minByValue, {})
-  const maxItem = data.reduce(maxByValue, {})
-
-  console.log(minItem, maxItem)
-  // output: { value: 2 }, { value: 6 }
-
-  // or also more universal and little slower variant of minBy
-  const minBy = (collection, key) => {
-    // slower because need to create a lambda function for each call...
-    const select = (a, b) => a[key] <= b[key] ? a : b
-    return collection.reduce(select, {})
-  }
-
-  console.log(minBy(data, 'value'))
-  // output: { value: 2 }
-  ```
-
-#### Browser Support for `Array.prototype.reduce()`
-
-| | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] | |
-| | :-----------------------------------------: | :---------------------------------: | :---------------------------------------------: | :-------------------------: | :-------------------------------------: | :-----------------------------------------: |
-|     |                 ✔                      |                   ✔                   |                     3.0 ✔                     |          9.0 ✔          |              10.5 ✔                 |                  4.0 ✔                   |
-
-**[⬆ back to top](#quick-links)**
-
 ### _.range
 
 Creates an array of numbers progressing from start up to.
@@ -412,77 +297,6 @@ Creates an array of numbers progressing from start up to.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         46.0 ✔          |       12.0 ✔        |          16.0 ✔           |        ✖        |        37.0 ✔         |          7.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-### _.sample
-
-Gets a random element from `array`.
-
-  ```js
-  // Underscore/Lodash
-  const array = [0, 1, 2, 3, 4]
-  const result = _.sample(array)
-  console.log(result)
-  // output: 2
-
-  // Native
-  const array = [0, 1, 2, 3, 4]
-  const sample = arr => {
-    const len = arr == null ? 0 : arr.length
-    return len ? arr[Math.floor(Math.random() * len)] : undefined
-  }
-
-  const result = sample(array)
-  console.log(result)
-  // output: 2
-  ```
-
-#### Browser Support for `Array.prototype.length()` and `Math.random()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |           1.0 ✔           |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-### _.sortBy and _.orderBy
-
-Sorts an array of object based on an object key provided by a parameter (note this is more limited than Underscore/Lodash).
-
-  ```js
-  const fruits = [
-    {name:"banana", amount: 2},
-    {name:"apple", amount: 4},
-    {name:"pineapple", amount: 2},
-    {name:"mango", amount: 1}
-  ];
-
-  // Underscore
-  _.sortBy(fruits, 'name');
-  // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
-
-  // Lodash
-  _.orderBy(fruits, ['name'],['asc']);
-  // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
-
-  // Native
-  const sortBy = (key) => {
-    return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
-  };
-
-  // The native sort modifies the array in place. `_.orderBy` and `_.sortBy` do not, so we use `.concat()` to
-  // copy the array, then sort.
-  fruits.concat().sort(sortBy("name"));
-  // => [{name:"apple", amount: 4}, {name:"banana", amount: 2}, {name:"mango", amount: 1}, {name:"pineapple", amount: 2}]
-  ```
-
-#### Browser Support for `Array.prototype.concat()` and `Array.prototype.sort()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|          1.0 ✔          |          ✔          |           1.0 ✔           |      5.5 ✔      |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
 
 ## Function
 
@@ -855,113 +669,3 @@ Removes all duplicates entries from an array.
 |         38.0 ✔          |       ✔ 12.0        |          13.0 ✔           |     11.0 ✔      |        25.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
-
-## Number
-
-### _.inRange
-Checks if n is between start and up to, but not including, end. If end is not specified, it's set to start with start then set to 0. If start is greater than end the params are swapped to support negative ranges.
-
-  ```js
-    // Lodash
-    _.inRange(3, 2, 4);
-    // output: true
-    _.inRange(-3, -2, -6);
-    // output: true
-
-    //Native
-    const inRange = (num, init, final) => {
-      if(final === undefined){
-        final = init;
-        init = 0;
-      }
-      return (num >= Math.min(init, final) && num < Math.max(init, final));
-    }
-    
-    //Native
-    const inRange = (num, a, b=0) => (Math.min(a,b) <= num && num < Math.max(a,b));
-
-    inRange(3, 2, 4);
-    // output: true
-    inRange(-3, -2, -6);
-    // output: true
-  ```
-
-  #### Browser Support for `Math.min() and Math.max()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-  ### _.random
-Produces a random number between the inclusive lower and upper bounds. If only one argument is provided a number between 0 and the given number is returned. If floating is true, or either lower or upper are floats, a floating-point number is returned instead of an integer.
-
-  ```js
-    // Lodash
-    _.random(0, 5);
-    // => an integer between 0 and 5
-    
-    _.random(5);
-    // => also an integer between 0 and 5
-    
-    _.random(5, true);
-    // => a floating-point number between 0 and 5
-    
-    _.random(1.2, 5.2);
-    // => a floating-point number between 1.2 and 5.2
-
-    //Native ES6
-    const random = (a = 1, b = 0) => {
-      const lower = Math.min(a, b);
-      const upper = Math.max(a, b);
-      return lower + Math.random() * (upper - lower);
-    };
-
-    const randomInt = (a = 1, b = 0) => {
-      const lower = Math.ceil(Math.min(a, b));
-      const upper = Math.floor(Math.max(a, b));
-      return Math.floor(lower + Math.random() * (upper - lower + 1))
-    };
-
-    random();
-    // => a floating-point number between 0 and 1
-    
-    random(5);
-    // => a floating-point number between 0 and 5
-    
-    random(0, 5);
-    // => also a floating-point number between 0 and 5
-    
-    random(1.2, 5.2);
-    // => a floating-point number between 1.2 and 5.2
-
-    randomInt();
-    // => just 0 or 1
-    
-    randomInt(5);
-    // => an integer between 0 and 5
-    
-    randomInt(0, 5);
-    // => also an integer between 0 and 5
-    
-    randomInt(1.2, 5.2);
-    // => an integer between 2 and 5
-
-  ```
-
-  #### Browser Support for `Math.random()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|            ✔            |          ✔          |             ✔             |        ✔        |           ✔           |            ✔            |
-
-**[⬆ back to top](#quick-links)**
-
-[chrome-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png
-[firefox-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png
-[ie-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png
-[opera-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png
-[safari-image]: https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png
-[edge-image]:
-https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png

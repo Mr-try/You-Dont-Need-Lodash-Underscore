@@ -3,7 +3,6 @@ const kebabCase = require('kebab-case');
 const rules = require('./lib/rules/rules.json')
 
 module.exports.rules = require('./lib/rules/all');
-
 const all = Object.keys(rules);
 const compatible = Object.keys(rules).filter(rule => rules[rule].compatible);
 const incompatible = Object.keys(rules).filter(rule => !rules[rule].compatible);

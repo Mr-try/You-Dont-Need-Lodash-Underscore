@@ -7,10 +7,6 @@
 
 **[Collection*](#collection*)**
 
-*:heavy_exclamation_mark:<b>Important:</b> Note that most native equivalents are array methods,
-and will not work with objects. If this functionality is needed and no object method is provided,
-then Lodash/Underscore is the better option.*
-
 1. [_.groupBy](#_groupby)
 1. [_.keyBy](#_keyBy)
 
@@ -510,12 +506,6 @@ Gets the value at path of object.
   var result = _.get(object, 'a[0].b.c', 1);
   console.log(result);
   // output: 3
-
-  // Native (ES6 - IE not supported)
-  var object = { a: [{ b: { c: 3 } }] };
-  var { a: [{ b: { c: result2 = 1 } }] } = object;
-  console.log(result2);
-  // output: 3
   
   // Native
   const get = (obj, path, defaultValue) => {
@@ -538,48 +528,6 @@ Gets the value at path of object.
 |         49.0 ✔          |       14.0 ✔        |          41.0 ✔           |        ✖        |        41.0 ✔         |          8.0 ✔          |
 
   **[⬆ back to top](#quick-links)**
-
-
-### _.pick
-
-Creates an object composed of the object properties predicate returns truthy for.
-
-  ```js
-  var object = { 'a': 1, 'b': '2', 'c': 3 };
-
-  // Underscore/Lodash
-  var result = _.pick(object, ['a', 'c']);
-  console.log(result)
-  // output: {a: 1, c: 3}
-
-  // Native
-  const { a, c } = object;
-  const result = { a, c};
-  console.log(result);
-  // output: {a: 1, c: 3}
-  // for an array of this object --> array.map(({a, c}) => ({a, c}));
-
-  // Native
-  function pick(object, keys) {
-    return keys.reduce((obj, key) => {
-       if (object && object.hasOwnProperty(key)) {
-          obj[key] = object[key];
-       }
-       return obj;
-     }, {});
-  }
-  var result = pick(object, ['a', 'c']);
-  console.log(result)
-  // output: {a: 1, c: 3}
-  ```
-
-#### Browser Support
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         38.0 ✔          |          ✔          |          13.0 ✔           |     12.0 ✔      |        25.0 ✔         |          7.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
 
 ### _.pickBy
 
@@ -638,34 +586,5 @@ Retrieves all the given object's own enumerable property `[ key, value ]` pairs.
 | ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
 | :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
 |         54.0 ✔          |       14.0 ✔        |          47.0 ✔           |        ✖        |        41.0 ✔         |         10.1 ✔          |
-
-**[⬆ back to top](#quick-links)**
-
-## Reference
-
-* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
-* [Underscore.js](http://underscorejs.org)
-* [Lodash.js](https://lodash.com/docs)
-
-### _.uniq
-Removes all duplicates entries from an array.
-
-  ```js
-  // Underscore/Lodash
-  var result = _.uniq([1, 2, 1, 4, 1, 3]);
-  console.log(result)
-  // output: [1, 2, 4, 3]
-
-  // Native
-  var result = [... new Set([1, 2, 1, 4, 1, 3])]
-  console.log(result)
-  // output: [1, 2, 4, 3]
-  ```
-
-#### Browser Support for `new Set()`
-
-| ![Chrome][chrome-image] | ![Edge][edge-image] | ![Firefox][firefox-image] | ![IE][ie-image] | ![Opera][opera-image] | ![Safari][safari-image] |
-| :---------------------: | :-----------------: | :-----------------------: | :-------------: | :-------------------: | :---------------------: |
-|         38.0 ✔          |       ✔ 12.0        |          13.0 ✔           |     11.0 ✔      |        25.0 ✔         |          7.1 ✔          |
 
 **[⬆ back to top](#quick-links)**
